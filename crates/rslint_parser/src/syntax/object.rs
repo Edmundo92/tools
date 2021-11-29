@@ -243,7 +243,7 @@ fn setter_object_member(p: &mut Parser) -> ParsedSyntax {
 // test object_member_name
 // let a = {"foo": foo, [6 + 6]: foo, bar: foo, 7: foo}
 /// Parses a `JsAnyObjectMemberName` and returns its completion marker
-fn object_member_name(p: &mut Parser) -> ParsedSyntax {
+pub(crate) fn object_member_name(p: &mut Parser) -> ParsedSyntax {
 	match p.cur() {
 		T!['['] => computed_member_name(p),
 		_ => literal_member_name(p),

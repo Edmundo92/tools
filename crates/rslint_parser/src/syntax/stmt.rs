@@ -783,7 +783,7 @@ pub(crate) fn variable_declarator(
 ) -> Option<CompletedMarker> {
 	let m = p.start();
 	p.state.should_record_names = is_const.is_some() || is_let;
-	let pat = if let Some(pattern) = pattern(p, false, false) {
+	let pat = if let Some(pattern) = pattern(p, false) {
 		pattern
 	} else {
 		m.abandon(p);
@@ -1196,7 +1196,7 @@ fn catch_declaration(p: &mut Parser) -> ParsedSyntax {
 
 	p.bump_any(); // bump (
 
-	let pattern_marker = pattern(p, false, false);
+	let pattern_marker = pattern(p, false);
 	let pattern_kind = pattern_marker.map(|x| x.kind());
 
 	if p.at(T![:]) {
