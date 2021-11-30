@@ -149,7 +149,7 @@ impl ParsedSyntax {
 	pub fn or_recover<E>(
 		self,
 		p: &mut Parser,
-		recovery: ParseRecovery,
+		recovery: &ParseRecovery,
 		error_builder: E,
 	) -> RecoveryResult
 	where
