@@ -141,7 +141,7 @@ pub(super) fn parse_parameters_list(
 				p.error(err);
 				let m = p.start();
 				p.bump_any();
-				m.complete(p, JS_UNKNOWN_PATTERN);
+				m.complete(p, JS_UNKNOWN_BINDING);
 			}
 
 			// type annotation `...foo: number[]`
@@ -191,7 +191,7 @@ pub(super) fn parse_parameters_list(
 			// function (a++, c) {}
 			let recovered_result = parse_param(p).or_recover(
 				p,
-				ParseRecovery::new(
+				&ParseRecovery::new(
 					JS_UNKNOWN_BINDING,
 					token_set![
 						T![ident],

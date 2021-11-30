@@ -111,10 +111,6 @@ pub(crate) fn expected_identifier(p: &Parser, range: Range<usize>) -> Diagnostic
 	expected_node("identifier", range).to_diagnostic(p)
 }
 
-pub(crate) fn expected_parameter(p: &Parser, range: Range<usize>) -> Diagnostic {
-	expected_node("parameter", range).to_diagnostic(p)
-}
-
 pub(crate) fn expected_property_binding(p: &Parser, range: Range<usize>) -> Diagnostic {
 	expected_any(
 		&[
